@@ -1,22 +1,41 @@
 import { db } from "@/config/db";
 import { usersTable } from "@/config/schema";
 import { eq } from "drizzle-orm";
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
+import { NextRequest } from "next/server";
+
+// Define the type of the incoming user object
+interface User {
+  fullName: string;
+  primaryEmailAddress: {
+    emailAddress: string;
+  };
+  imageUrl?: string;
+}
 
 export async function POST(req: NextRequest) {
-    const { user } = await req.json();
-    const userData = await db.select().from(usersTable)
-        .where((eq(usersTable.email, user?.primaryEmailAddress.emailAddress)))
+  // Ensure req.json() is handled properly
+  const { user }: { user: User } = await req.json();
 
-    if(userData.length<=0){
-        //If not then insert new user to the DB
-        const result = await db.insert(usersTable).values({
-            name: user?.fullName,
-            email: user?.primaryEmailAddress.emailAddress,
-            image: user?.imageUrl
-        }).returning()
-        return NextResponse.json(result)
-    }
+  // Query the database and type the result
+  const userData = await db
+    .select()
+    .from(usersTable)
+    .where(eq(usersTable.email, user?.primaryEmailAddress.emailAddress));
 
-    return NextResponse.json(userData[0]);
+  if (userData.length <= 0) {
+    // If not found, insert new user into the database
+    const result = await db
+      .insert(usersTable)
+      .values({
+        name: user?.fullName,
+        email: user?.primaryEmailAddress.emailAddress,
+        image: user?.imageUrl,
+      })
+      .returning();
+
+    return NextResponse.json(result[0]);
+  }
+
+  return NextResponse.json(userData[0]);
 }
