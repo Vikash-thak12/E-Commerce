@@ -1,6 +1,7 @@
 import { ShoppingBag } from 'lucide-react'
 import React from 'react'
 import { Button } from './ui/button'
+import { UserButton } from '@clerk/nextjs'
 
 const menu = [
     {
@@ -16,7 +17,7 @@ const menu = [
 
 const Header = () => {
     return (
-        <section className='bg-gray-300 flex items-center justify-between px-5 md:px-10 py-5'>
+        <section className='bg-gray-300 flex items-center justify-between px-3 md:px-10 py-5'>
             <h2 className='font-bold text-xl md:text-3xl cursor-pointer hover:scale-105 transition-all'>E-Store</h2>
             <ul className='flex items-center justify-center gap-5 cursor-pointer max-sm:hidden'>
                 {menu.map((item, index) => (
@@ -25,11 +26,21 @@ const Header = () => {
                     </li>
                 ))}
             </ul>
-            <div className='flex items-center gap-5'>
+            <div className='flex items-center gap-2 md:gap-5'>
                 <ShoppingBag className='size-8' />
                 <Button>
                     Click Here
                 </Button>
+                <UserButton
+                    appearance={{
+                        elements: {
+                            userButtonAvatarBox: {
+                                width: '40px', 
+                                height: '40px', 
+                            },
+                        },
+                    }}
+                />
             </div>
         </section>
     )
