@@ -4,7 +4,7 @@ import React from 'react'
 
 const Hero = () => {
     return (
-        <div className='bg-green-500'>
+        <div className='bg-slate-400'>
             <div className='grid grid-cols-1 md:grid-cols-2 px-5 py-5 md:px-32 md:py-10'>
                 <div className='flex flex-col items-start justify-center gap-5'>
                     <h1 className='font-bold text-3xl md:text-5xl'>SpeedUp Your Creative WorkFlow</h1>

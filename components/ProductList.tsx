@@ -12,7 +12,7 @@ const ProductList = () => {
         setProducts(dummyData)
     }, [])
     return (
-        <div className='px-32 mt-5 '>
+        <div className='px-32 my-5'>
             <div className='flex justify-between items-center'>
                 <h1 className='font-bold text-xl'>Feature</h1>
                 <Button>View All</Button>

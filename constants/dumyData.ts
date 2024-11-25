@@ -3,7 +3,7 @@ export const dummyData = [
         id: 1, 
         name: "Next Gen Computer",
         price: 2000,
-        image: "/watch.png",
+        image: "/assets/first.jpg",
         user: {
             image: "/profile.jpeg",
             name: "Vikash"
@@ -13,7 +13,7 @@ export const dummyData = [
         id: 2, 
         name: "Next Gen Computer",
         price: 2000,
-        image: "/watch.png",
+        image: "/assets/second.jpg",
         user: {
             image: "/profile.jpeg",
             name: "Vikash"
@@ -23,7 +23,7 @@ export const dummyData = [
         id: 3, 
         name: "Next Gen Computer",
         price: 2000,
-        image: "/watch.png",
+        image: "/assets/third.jpg",
         user: {
             image: "/profile.jpeg",
             name: "Vikash"
@@ -33,7 +33,7 @@ export const dummyData = [
         id: 4, 
         name: "Next Gen Computer",
         price: 2000,
-        image: "/watch.png",
+        image: "/assets/forth.jpg",
         user: {
             image: "/profile.jpeg",
             name: "Vikash"
@@ -43,7 +43,7 @@ export const dummyData = [
         id: 5, 
         name: "Next Gen Computer",
         price: 2000,
-        image: "/watch.png",
+        image: "/assets/second.jpg",
         user: {
             image: "/profile.jpeg",
             name: "Vikash"
@@ -53,7 +53,7 @@ export const dummyData = [
         id: 6, 
         name: "Next Gen Computer",
         price: 2000,
-        image: "/watch.png",
+        image: "/assets/first.jpg",
         user: {
             image: "/profile.jpeg",
             name: "Vikash"
