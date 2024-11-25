@@ -4,7 +4,7 @@ import React from 'react'
 import { Button } from './ui/button'
 
 
-const ProductCard = ({ product: { id, name, price, image, user } }: { product: ProductType }) => {
+const ProductCard = ({ product: { name, price, image, user } }: { product: ProductType }) => {
     return (
         <div className='border p-5 rounded-xl cursor-pointer hover:scale-105 transition-all hover:shadow-md hover:shadow-slate-500 bg-gray-400'>
             <div className='flex items-center justify-center'>
