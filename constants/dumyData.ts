@@ -5,7 +5,7 @@ export const dummyData = [
         price: 2000,
         image: "/watch.png",
         user: {
-            image: "/profile.jepg",
+            image: "/profile.jpeg",
             name: "Vikash"
         }
     },
@@ -15,7 +15,7 @@ export const dummyData = [
         price: 2000,
         image: "/watch.png",
         user: {
-            image: "/profile.jepg",
+            image: "/profile.jpeg",
             name: "Vikash"
         }
     },
@@ -25,7 +25,7 @@ export const dummyData = [
         price: 2000,
         image: "/watch.png",
         user: {
-            image: "/profile.jepg",
+            image: "/profile.jpeg",
             name: "Vikash"
         }
     },
@@ -35,7 +35,7 @@ export const dummyData = [
         price: 2000,
         image: "/watch.png",
         user: {
-            image: "/profile.jepg",
+            image: "/profile.jpeg",
             name: "Vikash"
         }
     },
@@ -45,7 +45,7 @@ export const dummyData = [
         price: 2000,
         image: "/watch.png",
         user: {
-            image: "/profile.jepg",
+            image: "/profile.jpeg",
             name: "Vikash"
         }
     },
@@ -55,7 +55,7 @@ export const dummyData = [
         price: 2000,
         image: "/watch.png",
         user: {
-            image: "/profile.jepg",
+            image: "/profile.jpeg",
             name: "Vikash"
         }
     },
