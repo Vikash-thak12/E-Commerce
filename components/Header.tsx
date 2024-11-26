@@ -2,6 +2,7 @@ import { ShoppingBag } from 'lucide-react'
 import React from 'react'
 import { Button } from './ui/button'
 import { UserButton } from '@clerk/nextjs'
+import Link from 'next/link'
 
 const menu = [
     {
@@ -28,9 +29,11 @@ const Header = () => {
             </ul>
             <div className='flex items-center gap-2 md:gap-5'>
                 <ShoppingBag className='size-8' />
+                <Link href={"/dashboard"}>
                 <Button>
                     Click Here
                 </Button>
+                </Link>
                 <UserButton
                     appearance={{
                         elements: {
