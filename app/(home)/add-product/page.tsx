@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/select"
 import { Textarea } from '@/components/ui/textarea'
 import { Button } from '@/components/ui/button'
+import ImageUpload from '@/components/ImageUpload'
 
 
 const AddProduct = () => {
@@ -22,8 +23,12 @@ const AddProduct = () => {
             <h1 className='font-bold text-2xl'>Add Product</h1>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-10 mt-10'>
                 {/* Left side */}
-                <div>
-
+                <div className='flex flex-col gap-5'>
+                    <ImageUpload />
+                    <div className='flex flex-col gap-2'>
+                        <label className='font-bold'>Message to User when they buy</label>
+                        <Textarea name='message' placeholder='Message for your buyer' className='focus-visible:ring-0 focus-visible:ring-offset-0' />
+                    </div>
                 </div>
 
                 {/* Right Side */}
