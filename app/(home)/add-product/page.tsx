@@ -1,5 +1,6 @@
+'use client'
 import { Input } from '@/components/ui/input'
-import React from 'react'
+import React, { useState } from 'react'
 
 import {
     Select,
@@ -17,6 +18,17 @@ const AddProduct = () => {
 
     const category = ["Computer", "Laptop", "Mobiles", "Television", "Tables", "Raw", "Others"]
 
+    const [formData, setFormData] = useState([])
+    const handleInputChange = (fieldName: string, fieldValue: string) => {
+        setFormData((prev) => ({
+            ...prev,
+            [fieldName]: fieldValue
+        }))
+    }
+
+    const onAddProductBtnClick = () => {
+        console.log("formData", formData)
+    }
 
     return (
         <section>
@@ -35,16 +47,21 @@ const AddProduct = () => {
                 <div className='flex flex-col gap-5'>
                     <div className='flex flex-col gap-2'>
                         <label className='font-bold'>Title of the Product</label>
-                        <Input name='title' placeholder='Ex. Smartphone, Books, Laptops' className='focus-visible:ring-0 focus-visible:ring-offset-0' />
+                        <Input
+                        onChange={(e) => handleInputChange(e.target.name, e.target.value)}
+                            name='title' placeholder='Ex. Smartphone, Books, Laptops' className='focus-visible:ring-0 focus-visible:ring-offset-0'
+                        />
                     </div>
                     <div className='flex flex-col gap-2'>
                         <label className='font-bold'>Price of the Product</label>
-                        <Input type='number' name='price' placeholder='Rs. 5,000' className='focus-visible:ring-0 focus-visible:ring-offset-0' />
+                        <Input 
+                        onChange={(e) => handleInputChange(e.target.name, e.target.value)}
+                        type='number' name='price' placeholder='Rs. 5,000' className='focus-visible:ring-0 focus-visible:ring-offset-0' />
                     </div>
 
                     <div className='flex flex-col gap-2'>
                         <label className='font-bold'>Category</label>
-                        <Select>
+                        <Select onValueChange={(value) => handleInputChange('category', value)}>
                             <SelectTrigger className="w-[180px]">
                                 <SelectValue placeholder="Select Category" />
                             </SelectTrigger>
@@ -58,9 +75,11 @@ const AddProduct = () => {
 
                     <div className='flex flex-col gap-2'>
                         <label className='font-bold'>Description</label>
-                        <Textarea name='description' placeholder='Enter Details about your Product' className='focus-visible:ring-0 focus-visible:ring-offset-0' />
+                        <Textarea
+                        onChange={(e) => handleInputChange(e.target.name, e.target.value)}
+                         name='description' placeholder='Enter Details about your Product' className='focus-visible:ring-0 focus-visible:ring-offset-0' />
                     </div>
-                    <Button>Add</Button>
+                    <Button onClick={onAddProductBtnClick}>Add</Button>
                 </div>
             </div>
         </section>
