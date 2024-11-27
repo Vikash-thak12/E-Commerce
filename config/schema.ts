@@ -1,4 +1,4 @@
-import { integer, pgTable, varchar } from "drizzle-orm/pg-core";
+import { integer, pgTable, text, varchar } from "drizzle-orm/pg-core";
 
 
 
@@ -9,3 +9,16 @@ export const usersTable = pgTable("users", {
   image: varchar(),
   email: varchar({ length: 255 }).notNull().unique(),
 });
+
+
+export const productTable = pgTable("product", {
+  id: integer().primaryKey().generatedAlwaysAsIdentity(),
+  title: varchar().notNull(),
+  price: integer().notNull(),
+  description: text().notNull(),
+  category: varchar().notNull(),
+  imageUrl: varchar().notNull(),
+  fileUrl: varchar().notNull(),
+  message: varchar().notNull(),
+  createBy: varchar().notNull().references(() => usersTable.email)
+})
