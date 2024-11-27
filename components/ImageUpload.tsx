@@ -3,10 +3,15 @@ import React, { useState } from 'react';
 import { Input } from './ui/input';
 import Image from 'next/image';
 
-const ImageUpload: React.FC = () => {
+interface ImageUploadProps {
+  onImageSelect: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+const ImageUpload: React.FC<ImageUploadProps> = ({onImageSelect}) => {
   const [image, setImage] = useState<string | null>(null); // Explicitly typing state
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    onImageSelect(e)
     const file = e.target.files?.[0];
     if (file) {
       const reader = new FileReader();
@@ -27,6 +32,7 @@ const ImageUpload: React.FC = () => {
         type='file'
         id='uploadImage'
         className='hidden'
+        name='image'
         onChange={handleFileChange}
       />
       <label htmlFor='uploadImage'>
