@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use client'
 import { Input } from '@/components/ui/input'
@@ -13,6 +14,7 @@ import {
 import { Textarea } from '@/components/ui/textarea'
 import { Button } from '@/components/ui/button'
 import ImageUpload from '@/components/ImageUpload'
+import axios from 'axios'
 
 const AddProduct = () => {
     const category = ["Computer", "Laptop", "Mobiles", "Television", "Tables", "Raw", "Others"]
@@ -25,8 +27,19 @@ const AddProduct = () => {
         }))
     }
 
-    const onAddProductBtnClick = () => {
-        console.log("formData", formData)
+    const onAddProductBtnClick = async () => {
+        // console.log("formData", formData)
+        const formDataObj = new FormData()
+        formDataObj.append('image', formData.image)
+        formDataObj.append('file', formData.file)
+        formDataObj.append('data', JSON.stringify(formData))
+
+        const result = await axios.post("/api/product", formDataObj, {
+            headers: {
+                "Content-Type": 'multiport/form-data'
+            }
+        })
+        // console.log("The Result", result)
     }
 
     return (

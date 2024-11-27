@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 'use client'
 import { useUser } from '@clerk/nextjs'
 import axios from 'axios'
@@ -16,7 +17,7 @@ const Provider = ({ children }: {children: ReactNode}) => {
             user: user
         })
 
-        console.log("Result", result.data)
+        // console.log("Result", result.data)
     }
   return (
     <div>
